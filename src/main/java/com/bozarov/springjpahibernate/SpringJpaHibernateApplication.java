@@ -79,13 +79,30 @@ public class SpringJpaHibernateApplication implements CommandLineRunner{
 		savedJacobCars.add(savedBmw); 
 		savedJacob.setCars(savedJacobCars);
 		
+		// Hobbies ManyToMany relationship with Person / People
+		Set<Person> savedPeople = new HashSet<>(); 
+		savedPeople.add(savedJohn); 
+		savedPeople.add(savedJacob);
+		Hobby soccer = new Hobby(" Soccer ", " Playing soccer game like a Messi! ", savedPeople); 
+		Hobby savedSoccerHobby = hobbyRespository.save(soccer); 
+		Hobby coding = new Hobby(" Coding ", " Code in Spring and Java ", savedPeople); 
+		Hobby savedCodingHobby = hobbyRespository.save(coding);
+		Set<Hobby> savedHobbies = new HashSet<>(); 
+		savedHobbies.add(savedSoccerHobby); 
+		savedHobbies.add(savedCodingHobby);
 		
+		savedJohn.setHobbies(savedHobbies);
+		savedJacob.setHobbies(savedHobbies);
 		
-		//Hobby soccer = new Hobby("Soccer", "Playing soccer game like a Messi!", savedJohn); 
 		personRepository.save(savedJohn); 
 		personRepository.save(savedJacob); 
 		
 	}
+	
+	
+	
+	
+	
 	
 }
 
