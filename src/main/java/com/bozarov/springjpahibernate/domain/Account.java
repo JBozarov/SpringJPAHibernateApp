@@ -1,27 +1,20 @@
 package com.bozarov.springjpahibernate.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Car {
+public class Account {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
+	private Long accnumber; 
 	
-	@Column(name = "name")
-	private String name; 
-	
-	@ManyToOne
-	@JoinColumn(name = "person_id")
+	@OneToOne
 	private Person person;
 
 	public Long getId() {
@@ -32,12 +25,12 @@ public class Car {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public Long getAccnumber() {
+		return accnumber;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAccnumber(Long accnumber) {
+		this.accnumber = accnumber;
 	}
 
 	public Person getPerson() {
@@ -47,5 +40,6 @@ public class Car {
 	public void setPerson(Person person) {
 		this.person = person;
 	} 
+	
 	
 }
