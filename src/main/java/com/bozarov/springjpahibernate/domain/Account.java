@@ -17,6 +17,16 @@ public class Account {
 	@OneToOne
 	private Person person;
 
+	
+	public Account() {
+	}
+	
+	public Account(Long accnumber, Person person) {
+		this.accnumber = accnumber;
+		this.person = person;
+	}
+
+
 	public Long getId() {
 		return id;
 	}

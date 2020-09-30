@@ -24,6 +24,16 @@ public class Car {
 	@JoinColumn(name = "person_id")
 	private Person person;
 
+	
+	public Car() {
+		super();
+	}
+	
+	public Car(String name, Person person) {
+		this.name = name;
+		this.person = person;
+	}
+
 	public Long getId() {
 		return id;
 	}
