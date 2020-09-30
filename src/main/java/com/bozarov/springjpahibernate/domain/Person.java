@@ -24,12 +24,10 @@ public class Person {
 	Set<Car> cars = new HashSet<>();
 	
 	@ManyToMany
-	//@JoinTable(name = "peoples_hobbies", )
+	@JoinTable(name = "peoples_hobbies", 
+	joinColumns = @JoinColumn(name = "person_id"), 
+	inverseJoinColumns = @JoinColumn(name = "hobby_id"))
 	Set<Hobby> hobbies = new HashSet<>();
 	
 }
 
-
-//@JoinTable(name = "peoples_hobbies") 
-//joinColumns = @JoinColumn(name = "person_id"),
-//inverseJoinColumns = @JoinColumn(name = "employer_id"))

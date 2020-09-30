@@ -24,7 +24,7 @@ public class Hobby {
 	@Lob
 	private String description;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "hobbies") // if we don't use mappedBy it will create 2 join tables 
 	private Set<Person> persons; 
 	
 }
