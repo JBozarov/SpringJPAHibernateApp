@@ -60,6 +60,7 @@ public class SpringJpaHibernateApplication implements CommandLineRunner{
 		savedJohnCars.add(savedCorolla);
 		savedJohnCars.add(savedRx350); 
 		savedJohn.setCars(savedJohnCars);
+		System.out.println("Hello Omonjon");
 		
 		// Person Jacob 
 		Person jacob = new Person(); 
